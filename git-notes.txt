@@ -2,6 +2,12 @@
 (1) .git folder contains all the GIT repo information
 (2) For a multi level folder (when they added newly), GIT does not show all of them recursively. It only shows the 1st level folder.
 For e.g. level1 -> level2 -> level3 (all of them are new folders, git status does not show all the folders, instead they show level1 as not added folder)
+(3) For newly added untracked file, git rm command doesn't work as it is not tracking file. It is only useful for untracked files
+(4) For ignoring files, .gitignore file is needed. '1' expression per line. We can register 
+	- specific file, 
+	- folder or 
+	- a file pattern (regex) 
+
 
 ---Configuration---
 ### Global configuration ### 
@@ -9,17 +15,29 @@ git config --global user.name "Yusuf Sheikh"
 git config --global user.email "sheikh.yusuf@gmail.com"
 git config --global core.editor "mate"
 git config --global --list 	#List Global Configuration#
+git config --global alias.history="log --all --online --decorate --graph"
 
 
 ---Commands---
-git clone <URL> 	# Git Clone Command: It clones the project
-git status 			# Git status: shows the status of the GIT repository 
-git init 			# GIT init: Initializes the GIT repo and creates a folder 	
-mate ~/.gitconfig 	#.gitconfig file contains all the configurations (usually in the user folder)
-git commit -am  	# It is inline adding and committing (works only on current files, not new ones)
-git ls -files (lists all the files GIT is tracking)
-git pull origin master
+git clone <URL> 		# Git Clone Command: It clones the project
+git status 				# Git status: shows the status of the GIT repository 
+git init 				# GIT init: Initializes the GIT repo and creates a folder 	
+git commit -am  		# It is inline adding & committing (works only on current files, not new ones)
+git ls -files 			# Lists all the files GIT is tracking
+git pull origin master	# Pulls the code from the master branch
+git reset HEAD <file>	# Puts it back from staging area (committed) to working directory (uncommitted)
+(In case of deletion, it unstages the file but does not restore to the working directory)
+git checkout -- <file> 	# Discards file changes in the current working directory
+git add -A				# Adds and updates working directory including renames and deletions
+git update -u			# Updates the index
+git show <commitId>		# Shows the details of the commit id
 
+---GIT log---
+git log --abbrev -commit					# Abbreviates the commit with short hand commit Id
+git log --all --oneline --graph --decorate	# Decorates the commits in one line
+git log <commitId1> ... <commitId2>			# Range of commits	
+git log --since="3 days ago"				# Shows commits since 3 days ago
+mate ~/.gitconfig 		#.gitconfig file contains all the configurations (usually in the user folder)
 
 ---Questions---
 (Q) git clone command default behavior is to clone with the same name as GIT repo 
