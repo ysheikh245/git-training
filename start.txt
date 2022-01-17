@@ -1,0 +1,12 @@
+# This is used to set the global configuration 
+git config --global user.name "Yusuf Sheikh"
+git config --global user.email "sheikh.yusuf@gmail.com"
+
+# This is used to list the global configuration
+git config --global --list
+
+# Git Clone Command
+git clone <URL>
+
+# Git status 
+git status
