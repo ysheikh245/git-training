@@ -1,6 +1,7 @@
 ---Notes---
 (1) .git folder contains all the GIT repo information
-
+(2) For a multi level folder (when they added newly), GIT does not show all of them recursively. It only shows the 1st level folder.
+For e.g. level1 -> level2 -> level3 (all of them are new folders, git status does not show all the folders, instead they show level1 as not added folder)
 
 ---Configuration---
 ### Global configuration ### 
