@@ -7,10 +7,10 @@ For e.g. level1 -> level2 -> level3 (all of them are new folders, git status doe
 	- specific file, 
 	- folder or 
 	- a file pattern (regex) 
+(5) origin is the name of the remote reference that points to github. master is name of branch on git repo in github
 
 
 ---Configuration---
-### Global configuration ### 
 git config --global user.name "Yusuf Sheikh"
 git config --global user.email "sheikh.yusuf@gmail.com"
 git config --global core.editor "mate"
@@ -31,6 +31,13 @@ git checkout -- <file> 	# Discards file changes in the current working directory
 git add -A				# Adds and updates working directory including renames and deletions
 git update -u			# Updates the index
 git show <commitId>		# Shows the details of the commit id
+git difftool			# Compares the changes between working directory and staging area
+git difftool HEAD		# Compares the changes between working directory and last commit (local repo)
+git diff --staged HEAD	# Compares the changes between staging area and last commit (local repo)
+git diff -- <fileName>	# Compares the changes of the single file mentioned in fileName
+git diff <ref1> <ref2>	# Compares two commits
+git diff HEAD HEAD^		# Compares the contents between HEAD and (HEAD-1) 
+git diff master origin/master # Compares the contents between local and remote master branch
 
 ---GIT log---
 git log --abbrev -commit					# Abbreviates the commit with short hand commit Id
