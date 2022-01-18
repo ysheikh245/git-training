@@ -47,7 +47,7 @@ git checkout -b <branchName> # Creates the branch and moves reference to <branch
 git merge <branchName>	# name of the source branch merged in the current one
 git merge <branchName> --no-ff	# Merge the branch without any fast forward
 git merge <brancName> -m "commit message" # This preserves the branch as well
- 
+
 ---GIT log---
 git log --abbrev -commit					# Abbreviates the commit with short hand commit Id
 git log --all --oneline --graph --decorate	# Decorates the commits in one line
