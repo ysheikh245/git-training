@@ -8,7 +8,8 @@ For e.g. level1 -> level2 -> level3 (all of them are new folders, git status doe
 	- folder or 
 	- a file pattern (regex) 
 (5) origin is the name of the remote reference that points to github. master is name of branch on git repo in github
-
+(6) HEAD and origin/HEAD are pointers to the latest commit on the local and remote branch respectively
+(7) Branches are nothing special except for being reference label to the last commit
 
 ---Configuration---
 git config --global user.name "Yusuf Sheikh"
@@ -38,6 +39,12 @@ git diff -- <fileName>	# Compares the changes of the single file mentioned in fi
 git diff <ref1> <ref2>	# Compares two commits
 git diff HEAD HEAD^		# Compares the contents between HEAD and (HEAD-1) 
 git diff master origin/master # Compares the contents between local and remote master branch
+git branch -a			# Lists all the branches on local and remote
+git branch <branchName>	# Creates a new branch on the local GIT repo
+git branch -m <name1> <name2> # Renames the branch from name1 to name2
+git checkout <branchName> # Moves from current branch to <branchName>
+git checkout -b <branchName> # Creates the branch and moves reference to <branchName>
+git merge <branchName>	# name of the source branch merged in the current one
 
 ---GIT log---
 git log --abbrev -commit					# Abbreviates the commit with short hand commit Id
