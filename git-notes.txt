@@ -10,6 +10,14 @@ For e.g. level1 -> level2 -> level3 (all of them are new folders, git status doe
 (5) origin is the name of the remote reference that points to github. master is name of branch on git repo in github
 (6) HEAD and origin/HEAD are pointers to the latest commit on the local and remote branch respectively
 (7) Branches are nothing special except for being reference label to the last commit
+(8) To resolve merge conflicts, go to master/main branch and use git merge <branchName>
+    If it involves same file, git will add (MERGING) as prefix. We need to select the changes
+	and eventually use "git commit -am" to add and commit the changes to resolve the merge conflict
+(9) For GIT merge, you usually go in master and use: git merge <otherBranchName>
+(10) For GIT rebase, you usually go in other branch and use: git rebase <master/main>
+(11) By default, GIT stash stashes only tracked files. If there is a new file, git stash would not work
+(12) git stash -u will include all the new files (that are not being ignored by .gitignore)
+(13) You can use: "git stash pop" instead of 2 commands: git stash apply & git stash drop 
 
 ---Configuration---
 git config --global user.name "Yusuf Sheikh"
@@ -47,6 +55,22 @@ git checkout -b <branchName> # Creates the branch and moves reference to <branch
 git merge <branchName>	# name of the source branch merged in the current one
 git merge <branchName> --no-ff	# Merge the branch without any fast forward
 git merge <brancName> -m "commit message" # This preserves the branch as well
+git rebase <branch you want to rebase into>
+git rebase --abort		# Aborts the GIT rebase
+git rebase --continue	# Continues the GIT rebase
+git pull --rebase origin master	# Pulls the changes from remote to local and rebases
+git fetch 				# Updates the references of the local branch from remote
+git stash				# Temporarily stashes (saves) the work in progress files in working directory
+git stash apply			# Puts back the stashed changes in its earlier state
+git stash list			# Lists all the stashed items
+git stash drop			# Drops the stash item
+git stash -u			# Stashes all the files (including the untracked files)
+git stash drop			# You can use this command in place of git stash apply and git stash drop
+git stash save "message"	# Saves the stash with a message
+git stash show stash@{id} 	# Shows the stash from the list
+git stash apply stash@{id}	# Applies the stash from the list
+git stash drop stash@{id}	# Drops the stash from the list
+git stash clear				# Clears all the stashes
 
 ---GIT log---
 git log --abbrev -commit					# Abbreviates the commit with short hand commit Id
