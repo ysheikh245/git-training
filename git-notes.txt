@@ -18,6 +18,10 @@ For e.g. level1 -> level2 -> level3 (all of them are new folders, git status doe
 (11) By default, GIT stash stashes only tracked files. If there is a new file, git stash would not work
 (12) git stash -u will include all the new files (that are not being ignored by .gitignore)
 (13) You can use: "git stash pop" instead of 2 commands: git stash apply & git stash drop 
+(14) git stash branch does the following:
+		- creates a new branch, switches to the new branch
+		- applies the stash on the new branch
+		- drops the stash
 
 ---Configuration---
 git config --global user.name "Yusuf Sheikh"
@@ -71,6 +75,8 @@ git stash show stash@{id} 	# Shows the stash from the list
 git stash apply stash@{id}	# Applies the stash from the list
 git stash drop stash@{id}	# Drops the stash from the list
 git stash clear				# Clears all the stashes
+git stash branch <branchName>
+
 
 ---GIT log---
 git log --abbrev -commit					# Abbreviates the commit with short hand commit Id
