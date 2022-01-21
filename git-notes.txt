@@ -22,6 +22,8 @@ For e.g. level1 -> level2 -> level3 (all of them are new folders, git status doe
 		- creates a new branch, switches to the new branch
 		- applies the stash on the new branch
 		- drops the stash
+(15) Creating a light weight tag is different than an annotated tag.
+(16) When you push the tag, it also pushes the commit associated with that tag
 
 ---Configuration---
 git config --global user.name "Yusuf Sheikh"
@@ -76,7 +78,13 @@ git stash apply stash@{id}	# Applies the stash from the list
 git stash drop stash@{id}	# Drops the stash from the list
 git stash clear				# Clears all the stashes
 git stash branch <branchName>
-
+git tag <tagName>		# Creates the tag with the tagName
+git tag --list			# Lists all the tags
+git tag -a <tagName>	# Annotates and creates a tag
+git tag -a <tagName> <commitId>	# Tags a specific GIT commit
+git tag -a <tagName> <correct commitId>	# Updating a tag to the appropriate commit id
+git push origin master --tags	# Pushes all the tags to the remote branch
+git push origin :<tagName>		# Deletes r=the tag from the remote branch
 
 ---GIT log---
 git log --abbrev -commit					# Abbreviates the commit with short hand commit Id
