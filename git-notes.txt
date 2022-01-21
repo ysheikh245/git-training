@@ -83,6 +83,7 @@ git tag --list			# Lists all the tags
 git tag -a <tagName>	# Annotates and creates a tag
 git tag -a <tagName> <commitId>	# Tags a specific GIT commit
 git tag -a <tagName> <correct commitId>	# Updating a tag to the appropriate commit id
+git push origin <tagName>
 git push origin master --tags	# Pushes all the tags to the remote branch
 git push origin :<tagName>		# Deletes r=the tag from the remote branch
 
