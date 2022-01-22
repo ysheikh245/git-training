@@ -24,6 +24,11 @@ For e.g. level1 -> level2 -> level3 (all of them are new folders, git status doe
 		- drops the stash
 (15) Creating a light weight tag is different than an annotated tag.
 (16) When you push the tag, it also pushes the commit associated with that tag
+(17) For GIT cherry-pick,
+	 - create develop from master
+	 - commit1 on master, commit2 on master
+	 - commit1 on develop, commit2 on develop
+	 - come back to master and git cherry-pick commit1 (the changes done as part of commit1 is present in the master branch)
 
 ---Configuration---
 git config --global user.name "Yusuf Sheikh"
@@ -52,9 +57,11 @@ git diff --staged HEAD	# Compares the changes between staging area and last comm
 git diff -- <fileName>	# Compares the changes of the single file mentioned in fileName
 git diff <ref1> <ref2>	# Compares two commits
 git diff HEAD HEAD^		# Compares the contents between HEAD and (HEAD-1) 
-git diff master origin/master # Compares the contents between local and remote master branch
+git diff master origin/master 	# Compares the contents between local and remote master branch
+git diff <branch1> <branch2>	# Compares the branch1 and branch2
 git branch -a			# Lists all the branches on local and remote
 git branch <branchName>	# Creates a new branch on the local GIT repo
+git branch <localBranch> <remoteBranch>	# Sets up local branch to track remote branch
 git branch -m <name1> <name2> # Renames the branch from name1 to name2
 git checkout <branchName> # Moves from current branch to <branchName>
 git checkout -b <branchName> # Creates the branch and moves reference to <branchName>
@@ -86,6 +93,12 @@ git tag -a <tagName> <correct commitId>	# Updating a tag to the appropriate comm
 git push origin <tagName>
 git push origin master --tags	# Pushes all the tags to the remote branch
 git push origin :<tagName>		# Deletes r=the tag from the remote branch
+git reset HEAD^			# Resets the HEAD (takes it back by one commit)
+git reset HEAD^^        # Resets the HEAD (takes it back by two commits)
+git reflog				# Shows the log of whatever happened
+git reset <commitId>	# Resets the HEAD (fast forwards to that commit id)	
+git reset HEAD@{index}  # Resets the HEAD (fast forwards to the index id of HEAD)
+git cherry-pick <commitId>	# Cherry picks the commit id mentioned as argument
 
 ---GIT log---
 git log --abbrev -commit					# Abbreviates the commit with short hand commit Id
@@ -99,6 +112,7 @@ mate ~/.gitconfig 		#.gitconfig file contains all the configurations (usually in
 	(Ans) git clone <repo> <directory> - this will clone in the other directory
 (Q) git clone --bare vs got clone --mirror
 (Q) how to display the current branch name in the console of command prompt?
-
+(Q) Make changes to a repo and then try hard, soft and mixed reset types
+	(Ans) https://stackoverflow.com/questions/3528245/whats-the-difference-between-git-reset-mixed-soft-and-hard
 ---Links---
 https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone
