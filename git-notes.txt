@@ -37,7 +37,6 @@ git config --global core.editor "mate"
 git config --global --list 	#List Global Configuration#
 git config --global alias.history="log --all --online --decorate --graph"
 
-
 ---Commands---
 git clone <URL> 		# Git Clone Command: It clones the project
 git status 				# Git status: shows the status of the GIT repository 
@@ -51,6 +50,8 @@ git checkout -- <file> 	# Discards file changes in the current working directory
 git add -A				# Adds and updates working directory including renames and deletions
 git update -u			# Updates the index
 git show <commitId>		# Shows the details of the commit id
+
+--GIT diff---
 git difftool			# Compares the changes between working directory and staging area
 git difftool HEAD		# Compares the changes between working directory and last commit (local repo)
 git diff --staged HEAD	# Compares the changes between staging area and last commit (local repo)
@@ -59,20 +60,28 @@ git diff <ref1> <ref2>	# Compares two commits
 git diff HEAD HEAD^		# Compares the contents between HEAD and (HEAD-1) 
 git diff master origin/master 	# Compares the contents between local and remote master branch
 git diff <branch1> <branch2>	# Compares the branch1 and branch2
+
+---git branch---
 git branch -a			# Lists all the branches on local and remote
 git branch <branchName>	# Creates a new branch on the local GIT repo
 git branch <localBranch> <remoteBranch>	# Sets up local branch to track remote branch
 git branch -m <name1> <name2> # Renames the branch from name1 to name2
 git checkout <branchName> # Moves from current branch to <branchName>
 git checkout -b <branchName> # Creates the branch and moves reference to <branchName>
+
+---git merge---
 git merge <branchName>	# name of the source branch merged in the current one
 git merge <branchName> --no-ff	# Merge the branch without any fast forward
 git merge <brancName> -m "commit message" # This preserves the branch as well
+
+---git rebase---
 git rebase <branch you want to rebase into>
 git rebase --abort		# Aborts the GIT rebase
 git rebase --continue	# Continues the GIT rebase
 git pull --rebase origin master	# Pulls the changes from remote to local and rebases
 git fetch 				# Updates the references of the local branch from remote
+
+---git stash---
 git stash				# Temporarily stashes (saves) the work in progress files in working directory
 git stash apply			# Puts back the stashed changes in its earlier state
 git stash list			# Lists all the stashed items
@@ -85,6 +94,8 @@ git stash apply stash@{id}	# Applies the stash from the list
 git stash drop stash@{id}	# Drops the stash from the list
 git stash clear				# Clears all the stashes
 git stash branch <branchName>
+
+---git tag---
 git tag <tagName>		# Creates the tag with the tagName
 git tag --list			# Lists all the tags
 git tag -a <tagName>	# Annotates and creates a tag
@@ -93,11 +104,15 @@ git tag -a <tagName> <correct commitId>	# Updating a tag to the appropriate comm
 git push origin <tagName>
 git push origin master --tags	# Pushes all the tags to the remote branch
 git push origin :<tagName>		# Deletes r=the tag from the remote branch
+
+---git reset---
 git reset HEAD^			# Resets the HEAD (takes it back by one commit)
 git reset HEAD^^        # Resets the HEAD (takes it back by two commits)
 git reflog				# Shows the log of whatever happened
 git reset <commitId>	# Resets the HEAD (fast forwards to that commit id)	
 git reset HEAD@{index}  # Resets the HEAD (fast forwards to the index id of HEAD)
+
+---git cherry-pick
 git cherry-pick <commitId>	# Cherry picks the commit id mentioned as argument
 
 ---GIT log---
